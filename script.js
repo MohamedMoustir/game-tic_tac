@@ -40,7 +40,7 @@ for (let i = 0; i < 9; i++) {
 
     span[i].addEventListener('click', () => {
         if (isEmpty(i)) {
-            console.log("eeee");
+            
             if (count) {
                 checwin(player2, i)
                 count = false;
@@ -52,8 +52,7 @@ for (let i = 0; i < 9; i++) {
                 isEmpty(i)
             }
         } else {
-            console.log("eeeeee");
-
+            
         }
 
     })
@@ -64,12 +63,18 @@ for (let i = 0; i < 9; i++) {
 
 
 
-console.log(celse);
+
 
 
 function checwin(player, i) {
     span[i].textContent = player.mood;
+    player.played.push(i)
+    
+   player.played.push(i)
+    
     celse.push(i)
+    console.log(player.played);
+    
 
 }
 
@@ -86,7 +91,11 @@ function isEmpty(i) {
 
 function winers() {
 
-
+win1.somee(comp =>{
+    if(comp.every(index => player.plyerd.includes(index))){
+        alert("you win")
+    }
+})
 
 
     }
@@ -94,5 +103,5 @@ function winers() {
 
 
 
-}
+
 winers()
