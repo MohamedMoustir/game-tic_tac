@@ -63,7 +63,7 @@ function isEmpty(i) {
     return true
 
 }
-// console.log(dd);
+
 
 
 
@@ -76,11 +76,7 @@ function isEmpty(i) {
 
 // function winers() {
 
-//     if (col_0.textContent === 'O' && col_1.textContent === 'O' && col_2.textContent === 'O') {
 
-//         col_0.classList.add("win")
-//         col_1.classList.add("win")
-//         col_2.classList.add("win")
 
 
 //     }
