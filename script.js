@@ -44,7 +44,7 @@ for (let i = 0; i < 9; i++) {
                  
                 checkwin(player2, i)
                 if (winers(player2.mood)) {
-                    alert("you win")
+                
                 }else{
                     count = false;
                 }
@@ -56,7 +56,7 @@ for (let i = 0; i < 9; i++) {
               
                 checkwin(player1, i)
                 if (winers(player1.mood)) {
-                    alert("you win")
+                
                 }else{
                     count = true;
                 }
@@ -108,9 +108,12 @@ function winers(player) {
 win1.forEach(comp => {
     // console.log(comp.every(index => span[index].textContent===player.mood));
      if( comp.every(index => span[index].textContent===player)){
-    
-    
-        alert("you win")
+     span.forEach(element => {
+    element.classList.add("win");
+        
+     });
+        
+        
      }else{
         
     }
@@ -120,7 +123,7 @@ win1.forEach(comp => {
 
     }
 
-
+    console.log("dd",span);
 
 
 
