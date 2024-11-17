@@ -3,15 +3,14 @@ let span = document.querySelectorAll("span")
 
 
 let win1 = [
-    [0, 1, 2],
-    [0, 3, 6],
-    [0, 4, 8],
-    [1, 4, 7],
-    [2, 5, 8],
-    [2, 4, 6],
-    [3, 4, 5],
-    [6, 7, 8],
-   
+    [0, 1, 2], // الصف الأول
+    [3, 4, 5], // الصف الثاني
+    [6, 7, 8], // الصف الثالث
+    [0, 3, 6], // العمود الأول
+    [1, 4, 7], // العمود الثاني
+    [2, 5, 8], // العمود الثالث
+    [0, 4, 8], // القطر الأول
+    [2, 4, 6]  
 ]
 
 
@@ -42,18 +41,27 @@ for (let i = 0; i < 9; i++) {
         if (isEmpty(i)) {
             
             if (count) { 
-                 winers(player2)
+                 
                 checkwin(player2, i)
-              
-                count = false;
+                if (winers(player2.mood)) {
+                    alert("you win")
+                }else{
+                    count = false;
+                }
+                
              
                 
 
             } else {
-                winers(player1)
+              
                 checkwin(player1, i)
+                if (winers(player1.mood)) {
+                    alert("you win")
+                }else{
+                    count = true;
+                }
                 
-                count = true;
+                
                
                 
             }
@@ -75,7 +83,6 @@ for (let i = 0; i < 9; i++) {
 function checkwin(player, i) {
     span[i].textContent = player.mood;
     player.played.push(i)
-    player.played.push(i)    
     celse.push(i)
   
     
@@ -98,14 +105,17 @@ function isEmpty(i) {
 
 function winers(player) {
 
-win1.some(comp =>{
-
-    if(comp.every(index => player.played.includes(index))){
+win1.forEach(comp => {
+    // console.log(comp.every(index => span[index].textContent===player.mood));
+     if( comp.every(index => span[index].textContent===player)){
+    
+    
         alert("you win")
-    }else{
+     }else{
         
     }
-})
+});
+
 
 
     }
