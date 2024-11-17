@@ -44,7 +44,7 @@ for (let i = 0; i < 9; i++) {
 
                 checkwin(player2, i)
                 if (winers(player2.mood, i)) {
-                    
+
                 } else {
                     count = false;
                 }
@@ -53,7 +53,7 @@ for (let i = 0; i < 9; i++) {
 
                 checkwin(player1, i)
                 if (winers(player1.mood, i)) {
-                  
+
                 } else {
                     count = true;
                 }
@@ -78,7 +78,7 @@ function checkwin(player, i) {
     span[i].textContent = player.mood;
     player.played.push(i)
     celse.push(i)
-    
+
 
 }
 
@@ -92,27 +92,37 @@ function isEmpty(i) {
 
 let recet = 0;
 function winers(player, i) {
+  
     recet++
     win1.forEach(comp => {
 
         if (comp.every(index => span[index].textContent === player)) {
-              
+
             comp.forEach(index => {
                 span[index].classList.add("win");
                 player1.mood = ''
                 player2.mood = ''
                 player1.played = []
-                 player2.played = []
-                  console.log(index);
-                   
+                player2.played = []
+                // console.log(comp.filter(inde =>span[inde].textContent === player));
+
             })
-          
-          
+
             
+
+            // if (comp.filter(inde =>span[inde].textContent === player)) {
+                  
+            //        comp.forEach(inde =>{
+            //         span[inde].classList.add("don")
+            //         console.log(inde);
+            //        })
+                 
+            //     }
+
         } else if (recet >= 9) {
             for (let i = 0; i < 9; i++) {
                 span[i].classList.add("don")
-                
+
             }
         }
 
@@ -133,8 +143,8 @@ function rest() {
     player1.played = []
     player2.played = []
     player1.mood = 'X'
-     player2.mood = 'O'
-location.reload()
+    player2.mood = 'O'
+    location.reload()
 }
 
 
