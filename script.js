@@ -103,12 +103,13 @@ function winers(player, i) {
                 player2.mood = ''
                 player1.played = []
                  player2.played = []
+                  console.log(index);
                    
             })
           
           
             
-        } else if (recet == 9) {
+        } else if (recet >= 9) {
             for (let i = 0; i < 9; i++) {
                 span[i].classList.add("don")
                 
@@ -131,7 +132,9 @@ function rest() {
     celse = []
     player1.played = []
     player2.played = []
-
+    player1.mood = 'X'
+     player2.mood = 'O'
+location.reload()
 }
 
 
