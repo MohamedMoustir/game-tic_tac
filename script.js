@@ -3,14 +3,14 @@ let span = document.querySelectorAll("span")
 
 
 let win1 = [
-    [0, 1, 2], // الصف الأول
-    [3, 4, 5], // الصف الثاني
-    [6, 7, 8], // الصف الثالث
-    [0, 3, 6], // العمود الأول
-    [1, 4, 7], // العمود الثاني
-    [2, 5, 8], // العمود الثالث
-    [0, 4, 8], // القطر الأول
-    [2, 4, 6]  
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
 ]
 
 
@@ -39,34 +39,27 @@ for (let i = 0; i < 9; i++) {
 
     span[i].addEventListener('click', () => {
         if (isEmpty(i)) {
-            
-            if (count) { 
-                 
+
+            if (count) {
+
                 checkwin(player2, i)
-                if (winers(player2.mood)) {
-                
-                }else{
+                if (winers(player2.mood, i)) {
+                    
+                } else {
                     count = false;
                 }
-                
-             
-                
 
             } else {
-              
+
                 checkwin(player1, i)
-                if (winers(player1.mood)) {
-                
-                }else{
+                if (winers(player1.mood, i)) {
+                  
+                } else {
                     count = true;
                 }
-                
-                
-               
-                
             }
         } else {
-            
+
         }
 
     })
@@ -81,13 +74,10 @@ for (let i = 0; i < 9; i++) {
 
 
 function checkwin(player, i) {
+
     span[i].textContent = player.mood;
     player.played.push(i)
     celse.push(i)
-  
-    
-   
-    console.log(player.played);
     
 
 }
@@ -98,32 +88,51 @@ function isEmpty(i) {
         return false
     }
     return true
+}
+
+let recet = 0;
+function winers(player, i) {
+    recet++
+    win1.forEach(comp => {
+
+        if (comp.every(index => span[index].textContent === player)) {
+              
+            comp.forEach(index => {
+                span[index].classList.add("win");
+                player1.mood = ''
+                player2.mood = ''
+                player1.played = []
+                 player2.played = []
+                   
+            })
+          
+          
+            
+        } else if (recet == 9) {
+            for (let i = 0; i < 9; i++) {
+                span[i].classList.add("don")
+                
+            }
+        }
+
+    });
+
+    return false
 
 }
 
 
+function rest() {
+    span.forEach(card => {
+        card.innerHTML = "";
+        card.classList.remove("win");
+        card.classList.remove("don")
+    })
+    celse = []
+    player1.played = []
+    player2.played = []
 
-function winers(player) {
-
-win1.forEach(comp => {
-    // console.log(comp.every(index => span[index].textContent===player.mood));
-     if( comp.every(index => span[index].textContent===player)){
-     span.forEach(element => {
-    element.classList.add("win");
-        
-     });
-        
-        
-     }else{
-        
-    }
-});
-
-
-
-    }
-
-    console.log("dd",span);
+}
 
 
 
