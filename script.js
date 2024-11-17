@@ -8,10 +8,10 @@ let win1 = [
     [0, 4, 8],
     [1, 4, 7],
     [2, 5, 8],
-    [2, 4, 2],
+    [2, 4, 6],
     [3, 4, 5],
-    [6, 7, 8]
-
+    [6, 7, 8],
+   
 ]
 
 
@@ -41,15 +41,21 @@ for (let i = 0; i < 9; i++) {
     span[i].addEventListener('click', () => {
         if (isEmpty(i)) {
             
-            if (count) {
-                checwin(player2, i)
+            if (count) { 
+                 winers(player2)
+                checkwin(player2, i)
+              
                 count = false;
-                isEmpty(i)
+             
+                
 
             } else {
-                checwin(player1, i)
+                winers(player1)
+                checkwin(player1, i)
+                
                 count = true;
-                isEmpty(i)
+               
+                
             }
         } else {
             
@@ -66,13 +72,14 @@ for (let i = 0; i < 9; i++) {
 
 
 
-function checwin(player, i) {
+function checkwin(player, i) {
     span[i].textContent = player.mood;
     player.played.push(i)
-    
-   player.played.push(i)
-    
+    player.played.push(i)    
     celse.push(i)
+  
+    
+   
     console.log(player.played);
     
 
@@ -89,11 +96,14 @@ function isEmpty(i) {
 
 
 
-function winers() {
+function winers(player) {
 
-win1.somee(comp =>{
-    if(comp.every(index => player.plyerd.includes(index))){
+win1.some(comp =>{
+
+    if(comp.every(index => player.played.includes(index))){
         alert("you win")
+    }else{
+        
     }
 })
 
@@ -104,4 +114,3 @@ win1.somee(comp =>{
 
 
 
-winers()
